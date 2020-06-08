@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+data:
+  statusbadge.enabled: "true"
+  users.anonymous.enabled: "true"
+  ga.trackingid: ""
+  ga.anonymizeusers: "false"
+  # omitted:
+  # dex.config
+  # repository.credentials
+  # kustomize.buildoptions
