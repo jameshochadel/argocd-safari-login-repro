@@ -1,0 +1,91 @@
+Format:
+
+Request
+Response Headers
+Response Body
+
+
+
+POST /api/v1/session HTTP/1.1
+Accept: */*
+Content-Type: application/json
+Origin: http://localhost:8080
+Content-Length: 64
+Accept-Language: en-us
+Host: localhost:8080
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15
+Referer: http://localhost:8080/login?return_url=http%3A%2F%2Flocalhost%3A8080%2Fapplications
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 179
+Set-Cookie: argocd.token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTE2MjkxNTQsImlzcyI6ImFyZ29jZCIsIm5iZiI6MTU5MTYyOTE1NCwic3ViIjoiYWRtaW4ifQ.0jCpRUTmGn8qy6xoiLGtJ1Wla0ULRb4M9h99fIvx6k8; path=/; SameSite=lax; httpOnly
+Date: Mon, 08 Jun 2020 15:12:34 GMT
+Grpc-Metadata-Content-Type: application/grpc
+
+{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTE2MjkxNTQsImlzcyI6ImFyZ29jZCIsIm5iZiI6MTU5MTYyOTE1NCwic3ViIjoiYWRtaW4ifQ.0jCpRUTmGn8qy6xoiLGtJ1Wla0ULRb4M9h99fIvx6k8"}
+
+
+
+GET /api/v1/clusters HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Host: localhost:8080
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://localhost:8080/applications
+Connection: keep-alive
+
+HTTP/1.1 401 Unauthorized
+Trailer: Grpc-Trailer-Content-Type
+Transfer-Encoding: Identity
+Content-Type: application/json
+Date: Mon, 08 Jun 2020 15:12:34 GMT
+
+{
+    "error": "no session information",
+    "code": 16
+}
+
+
+
+GET /api/v1/session/userinfo HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Host: localhost:8080
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://localhost:8080/applications
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 2
+Date: Mon, 08 Jun 2020 15:12:34 GMT
+Grpc-Metadata-Content-Type: application/grpc
+
+{}
+
+
+
+GET /api/v1/applications HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Host: localhost:8080
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://localhost:8080/applications
+Connection: keep-alive
+
+HTTP/1.1 401 Unauthorized
+Trailer: Grpc-Trailer-Content-Type
+Transfer-Encoding: Identity
+Content-Type: application/json
+Date: Mon, 08 Jun 2020 15:12:34 GMT
+
+{
+    "error": "no session information",
+    "code": 16
+}

@@ -1,0 +1,66 @@
+Logs are in three sections (newlines added by me): 
+
+1. Service startup
+2. Logs from attempting to login with Safari
+3. Logs from attempting to login with Chrome
+
+~ kubectl logs -n argocd-repro argocd-server-6b69576d56-gf92d argocd-server --follow
+time="2020-06-08T15:11:29Z" level=info msg="Starting configmap/secret informers"
+time="2020-06-08T15:11:29Z" level=info msg="Configmap/secret informer synced"
+time="2020-06-08T15:11:29Z" level=info msg="Initialized server signature"
+time="2020-06-08T15:11:29Z" level=info msg="Initialized admin password"
+time="2020-06-08T15:11:29Z" level=info msg="Starting configmap/secret informers"
+time="2020-06-08T15:11:29Z" level=info msg="secrets informer cancelled"
+time="2020-06-08T15:11:29Z" level=info msg="configmap informer cancelled"
+time="2020-06-08T15:11:29Z" level=info msg="Configmap/secret informer synced"
+time="2020-06-08T15:11:29Z" level=info msg="Starting configmap/secret informers"
+time="2020-06-08T15:11:29Z" level=info msg="configmap informer cancelled"
+time="2020-06-08T15:11:29Z" level=info msg="secrets informer cancelled"
+time="2020-06-08T15:11:29Z" level=info msg="Configmap/secret informer synced"
+time="2020-06-08T15:11:29Z" level=info msg="Starting configmap/secret informers"
+time="2020-06-08T15:11:29Z" level=info msg="configmap informer cancelled"
+time="2020-06-08T15:11:29Z" level=info msg="secrets informer cancelled"
+time="2020-06-08T15:11:29Z" level=info msg="Configmap/secret informer synced"
+time="2020-06-08T15:11:29Z" level=info msg="argocd v1.5.6+f46333e serving on port 8080 (url: , tls: false, namespace: argocd-repro, sso: false)"
+time="2020-06-08T15:11:29Z" level=info msg="0xc000b93f20 subscribed to settings updates"
+time="2020-06-08T15:11:29Z" level=info msg="Starting rbac config informer"
+time="2020-06-08T15:11:29Z" level=info msg="RBAC ConfigMap 'argocd-rbac-cm' added"
+
+
+
+
+time="2020-06-08T15:12:28Z" level=info msg="received unary call /version.VersionService/Version" grpc.method=Version grpc.request.claims=null grpc.request.content= grpc.service=version.VersionService grpc.start_time="2020-06-08T15:12:28Z" span.kind=server system=grpc
+time="2020-06-08T15:12:28Z" level=info msg="ks  version" dir= execID=MC1rN
+time="2020-06-08T15:12:28Z" level=info msg="kustomize version" dir= execID=b8wAx
+time="2020-06-08T15:12:28Z" level=info msg="received unary call /cluster.SettingsService/Get" grpc.method=Get grpc.request.claims=null grpc.request.content= grpc.service=cluster.SettingsService grpc.start_time="2020-06-08T15:12:28Z" span.kind=server system=grpc
+time="2020-06-08T15:12:28Z" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=Get grpc.service=cluster.SettingsService grpc.start_time="2020-06-08T15:12:28Z" grpc.time_ms=0.412 span.kind=server system=grpc
+time="2020-06-08T15:12:28Z" level=info msg="finished unary call with code Unauthenticated" error="rpc error: code = Unauthenticated desc = no session information" grpc.code=Unauthenticated grpc.method=List grpc.service=cluster.ClusterService grpc.start_time="2020-06-08T15:12:28Z" grpc.time_ms=0.042 span.kind=server system=grpc
+time="2020-06-08T15:12:28Z" level=info msg="helm version --client" dir= execID=GcSEi
+time="2020-06-08T15:12:28Z" level=info msg="finished unary call with code Unauthenticated" error="rpc error: code = Unauthenticated desc = no session information" grpc.code=Unauthenticated grpc.method=List grpc.service=application.ApplicationService grpc.start_time="2020-06-08T15:12:28Z" grpc.time_ms=0.05 span.kind=server system=grpc
+time="2020-06-08T15:12:28Z" level=info msg="received unary call /session.SessionService/GetUserInfo" grpc.method=GetUserInfo grpc.request.claims=null grpc.request.content= grpc.service=session.SessionService grpc.start_time="2020-06-08T15:12:28Z" span.kind=server system=grpc
+time="2020-06-08T15:12:28Z" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=GetUserInfo grpc.service=session.SessionService grpc.start_time="2020-06-08T15:12:28Z" grpc.time_ms=1.111 span.kind=server system=grpc
+time="2020-06-08T15:12:28Z" level=info msg="kubectl version --client" dir= execID=kKqu7
+time="2020-06-08T15:12:28Z" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=Version grpc.service=version.VersionService grpc.start_time="2020-06-08T15:12:28Z" grpc.time_ms=222.384 span.kind=server system=grpc
+time="2020-06-08T15:12:28Z" level=info msg="received unary call /cluster.SettingsService/Get" grpc.method=Get grpc.request.claims=null grpc.request.content= grpc.service=cluster.SettingsService grpc.start_time="2020-06-08T15:12:28Z" span.kind=server system=grpc
+time="2020-06-08T15:12:28Z" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=Get grpc.service=cluster.SettingsService grpc.start_time="2020-06-08T15:12:28Z" grpc.time_ms=0.175 span.kind=server system=grpc
+time="2020-06-08T15:12:34Z" level=info msg="Issuing claims: { 0  1591629154 argocd 1591629154 admin}"
+time="2020-06-08T15:12:34Z" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=Create grpc.service=session.SessionService grpc.start_time="2020-06-08T15:12:33Z" grpc.time_ms=820.967 span.kind=server system=grpc
+time="2020-06-08T15:12:34Z" level=info msg="finished unary call with code Unauthenticated" error="rpc error: code = Unauthenticated desc = no session information" grpc.code=Unauthenticated grpc.method=List grpc.service=application.ApplicationService grpc.start_time="2020-06-08T15:12:34Z" grpc.time_ms=0.054 span.kind=server system=grpc
+time="2020-06-08T15:12:34Z" level=info msg="received unary call /session.SessionService/GetUserInfo" grpc.method=GetUserInfo grpc.request.claims=null grpc.request.content= grpc.service=session.SessionService grpc.start_time="2020-06-08T15:12:34Z" span.kind=server system=grpc
+time="2020-06-08T15:12:34Z" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=GetUserInfo grpc.service=session.SessionService grpc.start_time="2020-06-08T15:12:34Z" grpc.time_ms=0.247 span.kind=server system=grpc
+time="2020-06-08T15:12:34Z" level=info msg="finished unary call with code Unauthenticated" error="rpc error: code = Unauthenticated desc = no session information" grpc.code=Unauthenticated grpc.method=List grpc.service=cluster.ClusterService grpc.start_time="2020-06-08T15:12:34Z" grpc.time_ms=0.074 span.kind=server system=grpc
+time="2020-06-08T15:12:34Z" level=info msg="received unary call /cluster.SettingsService/Get" grpc.method=Get grpc.request.claims=null grpc.request.content= grpc.service=cluster.SettingsService grpc.start_time="2020-06-08T15:12:34Z" span.kind=server system=grpc
+time="2020-06-08T15:12:34Z" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=Get grpc.service=cluster.SettingsService grpc.start_time="2020-06-08T15:12:34Z" grpc.time_ms=0.233 span.kind=server system=grpc
+
+
+
+
+time="2020-06-08T15:12:50Z" level=info msg="Issuing claims: { 0  1591629170 argocd 1591629170 admin}"
+time="2020-06-08T15:12:50Z" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=Create grpc.service=session.SessionService grpc.start_time="2020-06-08T15:12:49Z" grpc.time_ms=684.257 span.kind=server system=grpc
+time="2020-06-08T15:12:50Z" level=info msg="received unary call /cluster.ClusterService/List" grpc.method=List grpc.request.claims="{\"iat\":1591629170,\"iss\":\"argocd\",\"nbf\":1591629170,\"sub\":\"admin\"}" grpc.request.content= grpc.service=cluster.ClusterService grpc.start_time="2020-06-08T15:12:50Z" span.kind=server system=grpc
+time="2020-06-08T15:12:50Z" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=List grpc.service=cluster.ClusterService grpc.start_time="2020-06-08T15:12:50Z" grpc.time_ms=0.586 span.kind=server system=grpc
+time="2020-06-08T15:12:50Z" level=info msg="received unary call /session.SessionService/GetUserInfo" grpc.method=GetUserInfo grpc.request.claims="{\"iat\":1591629170,\"iss\":\"argocd\",\"nbf\":1591629170,\"sub\":\"admin\"}" grpc.request.content= grpc.service=session.SessionService grpc.start_time="2020-06-08T15:12:50Z" span.kind=server system=grpc
+time="2020-06-08T15:12:50Z" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=GetUserInfo grpc.service=session.SessionService grpc.start_time="2020-06-08T15:12:50Z" grpc.time_ms=0.405 span.kind=server system=grpc
+time="2020-06-08T15:12:50Z" level=info msg="received unary call /application.ApplicationService/List" grpc.method=List grpc.request.claims="{\"iat\":1591629170,\"iss\":\"argocd\",\"nbf\":1591629170,\"sub\":\"admin\"}" grpc.request.content="resourceVersion:\"\" selector:\"\" " grpc.service=application.ApplicationService grpc.start_time="2020-06-08T15:12:50Z" span.kind=server system=grpc
+time="2020-06-08T15:12:50Z" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=List grpc.service=application.ApplicationService grpc.start_time="2020-06-08T15:12:50Z" grpc.time_ms=0.257 span.kind=server system=grpc
+time="2020-06-08T15:12:50Z" level=info msg="received streaming call /application.ApplicationService/Watch" grpc.method=Watch grpc.request.claims="{\"iat\":1591629170,\"iss\":\"argocd\",\"nbf\":1591629170,\"sub\":\"admin\"}" grpc.request.content="resourceVersion:\"\" selector:\"\" " grpc.service=application.ApplicationService grpc.start_time="2020-06-08T15:12:50Z" span.kind=server system=grpc
